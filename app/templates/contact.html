@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+
+  <h3>Contact Form</h3>
+  <hr></hr>
+  Fill in this form to contact the site owners.<br/><br/>
+
+  <form method="POST" action="{{ url_for('contact') }}">
+    {{ form.csrf_token }}
+    <strong>{{ form.name.label }} <span style="color:red">(Required) </span></strong><br /> Please enter your full name <br /> {{ form.name(size="40",class="field") }}<br /> <br />
+    <ul>
+    {% for error in form.name.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    <strong>{{ form.email.label }} <span style="color:red">(Required) </span></strong> <br />Please enter your e-mail address <br /> {{ form.email(size="40",class="field") }}<br /> <br />
+    <ul>
+    {% for error in form.email.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    <strong>{{ form.subject.label }} <span style="color:red">(Required) </span></strong> <br /> Please enter the subject of your message.<br />  {{ form.subject(size="40",class="field") }}<br /> <br />
+    <ul>
+    {% for error in form.subject.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    <strong>{{ form.message.label }} <span style="color:red">(Required) </span></strong> <br /> Please enter the message you would like to send. <br /> {{ form.message(cols="45", rows="5",class="field") }}<br /> 
+    <ul>
+    {% for error in form.message.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    <button type="submit">Send</button>
+  </form>
+  
+</div>
+{% endblock %}

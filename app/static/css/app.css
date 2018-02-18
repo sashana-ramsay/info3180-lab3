@@ -1,3 +1,17 @@
 body {
     padding-top: 5rem;
 }
+
+button{
+    background-color: #0073e6;
+    color:white;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+.field{
+    border-radius:8px;
+}
